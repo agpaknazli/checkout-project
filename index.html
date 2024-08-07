@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+   <link rel="stylesheet" href="./index.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <h1 class="col-12 text-center text-danger">
+      My Wallet App
+      <img
+        src="./img/thumbs_b_c_7be3a234d5e7a74a993fa6d4b9aa4345.jpg"
+        alt=""
+        width="50 px"
+      />
+    </h1>
+    <div class="container border border-2 border-dark-subtle">
+      <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-4 w-50">
+          <label for="validationCustom01" class="form-label">Tarih</label>
+          <input
+            type="date"
+            class="form-control"
+            id="validationCustom01"
+          
+          />
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+        <div class="col-md-4 w-50">
+          <label for="validationCustom02" class="form-label"
+            >Harcama Miktarı</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="validationCustom02"
+            value=""
+        placeholder="1000"
+          />
+        </div>
+        <div class="col-md-6 w-100">
+          <label for="validationCustom03" class="form-label"
+           >Harcama Alanı</label
+          >
+          <input
+          
+            type="text"
+            class="form-control"
+            id="validationCustom03"
+            placeholder="Kira,Fatura,Kredi Kartı"
+          />
+        </div>
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <button class="btn btn-primary bg-danger  " type="submit">Kaydet</button>
+        </div>
+
+      </form>
+      
+    </div>
+
+    <div class="container w-100">
+      <div class="col-md-12 w-100">
+        <div class="col-md-12 d-flex align-items-center gap-2">
+          <input
+            type="number"
+            class="form-control mt-3  w-100"
+            id="validationCustom03"
+            placeholder="Gelirinizi Girin"
+          /><button
+            class="btn btn-primary bg-danger mt-3"
+            type="submit"
+          >
+            Ekle
+          </button>
+        </div>
+      </div>
+    </div> 
+
+<!-- -------------------------------- tablo -------------------------------- -->
+
+<table class="table d-flex justify-content-around gap-2 mt-3">
+  <thead>
+      <tr>
+          <th scope="col" class="w-30 mt-5">Tarih</th>
+          <th scope="col" class="w-40">Harcama Alanı</th>
+          <th scope="col" class="w-20">Miktar($)</th>
+          <th scope="col" class="w-10">İşlem</th>
+      </tr>
+  </thead>
+  <!-- <tbody>
+      <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+      </tr>
+  </tbody> -->
+</table>
+    
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+<script src="./index.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
