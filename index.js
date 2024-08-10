@@ -102,7 +102,7 @@ ekleFormu.addEventListener("submit",(e)=>{
 
 gelirler=gelirler+Number(gelirInput.value)
 
-
+gelirInput.textContent=""
 // gelirinizTable.textContent=gelirler
 
 hesaplaAndGüncelle()
@@ -124,6 +124,20 @@ giderinizTable.textContent=giderler
 kalanTable.textContent=gelirler-giderler
 
 }
+
+
+//! Bilgileri temizlemek
+
+temizleBtn.onclick=()=>{
+    if(confirm("Tüm verileri silmek istediğine Emin misin?"))
+        
+        {harcamaListesi=[];
+            gelirler=0;
+
+hesaplaAndGüncelle();
+harcamaBody.innerHTML=""
+
+        }}
 
 
 
