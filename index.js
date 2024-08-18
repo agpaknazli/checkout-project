@@ -15,8 +15,9 @@ const kalanTable=document.getElementById("kalan");
 
 //? variables
 
-let gelirler=0
-let harcamaListesi=[]
+let gelirler=Number(localStorage.getItem("gelirler")) || 0 ;
+let harcamaListesi=JSON.parse (localStorage.getItem("harcamalar")) || [];
+ 
 
 
 //* Harcama Formu
@@ -29,7 +30,7 @@ const harcamaAlaniInput = document.getElementById("harcama-alani");
 //* harcama tablosu
 const harcamaBody = document.getElementById("harcama-body");
 const temizleBtn = document.getElementById("temizle-btn");
-//! iilk formu doldurma
+//! ilk formu doldurma
 
 harcamaFormu.addEventListener("submit",(e)=>{
     e.preventDefault();
@@ -44,6 +45,11 @@ harcamaFormu.addEventListener("submit",(e)=>{
     };
 harcamaListesi.push(yeniHarcama);
 // console.log(harcamaListesi);
+
+
+// LOCALsTORAGE YE DİZİYİ YOLLAMA
+
+localStorage.setItem("harcamalar",JSON.stringify(harcamaListesi))
 
 //ekrana bastır
 
@@ -69,7 +75,6 @@ const harcamayiShowScreen=({id,miktar,tarih,aciklama})=>{
 harcamaBody.innerHTML+= `
 <tr>
 <td class="bg-warning">${tarih}</td>
-
 <td class="bg-warning">${aciklama}</td>
 <td class="bg-warning">${miktar}</td>
 <td class="bg-warning"><i id=${id} class="fa-solid fa-trash-can text-danger"  type="button"></i></td>
@@ -87,8 +92,17 @@ harcamaBody.innerHTML+= `
 document.querySelectorAll(".fa-trash-can ").forEach((sil)=>{
     sil.onclick=()=>{
         sil.parentElement.parentElement.remove()
-    }
-})
+
+        // diziden silme databes olmadan filtre ile
+        harcamaListesi=harcamaListesi.filter((a)=>{
+            a.id!=sil.id;
+        })
+
+        localStorage.setItem("harcamalar",JSON.stringify(harcamaListesi))
+
+
+    };
+});
 
 };
 
@@ -102,7 +116,9 @@ ekleFormu.addEventListener("submit",(e)=>{
 
 gelirler=gelirler+Number(gelirInput.value)
 
-gelirInput.textContent=""
+gelirInput.value=""
+
+localStorage.setItem("gelirler",gelirler )
 // gelirinizTable.textContent=gelirler
 
 hesaplaAndGüncelle()
@@ -139,6 +155,13 @@ harcamaBody.innerHTML=""
 
         }}
 
+   //! refresh durumunda localstroge den verileri ekrana bastırma     
+        
+harcamaListesi.forEach((a)=>{
+    harcamayiShowScreen(a)
+});
+  
+        hesaplaAndGüncelle(); 
 
 
 
